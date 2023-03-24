@@ -1,0 +1,110 @@
+= Exercise 01
+:author: Florian Weingartshofer
+
+:source-highlighter: rouge
+
+== Step 01
+
+.01
+image::img/01.png[]
+
+.02
+image::img/02.png[]
+
+.03
+image::img/03.png[]
+
+.04
+image::img/04.png[]
+
+.05
+image::img/05.png[]
+
+.06
+image::img/06.png[]
+
+.07
+image::img/07.png[]
+
+.08
+image::img/08.png[]
+
+.09
+image::img/09.png[]
+
+.10
+image::img/10.png[]
+
+.11
+image::img/11.png[]
+
+.12
+image::img/12.png[]
+
+.13
+image::img/13.png[]
+
+.14
+image::img/14.png[]
+
+== Step 02
+
+.1
+image::img/15.png[]
+
+.2
+image::img/16.png[]
+
+.3
+image::img/17.png[]
+
+.4
+image::img/18.png[]
+
+.5
+image::img/19.png[]
+
+.6
+image::img/20.png[]
+
+.7
+image::img/21.png[]
+
+.8
+image::img/22.png[]
+
+== Step 3
+
+.Rebase ToDo
+image::img/step3/rebase.png[]
+
+.Rebase ToDo
+[source,text]
+----
+pick 940e726 commit B
+squash 56ad339 commit C
+pick f5a0a7f commit D
+
+exec git reset HEAD~; git add FileD1.txt; git commit -m "D1"; git add FileD2.txt; git commit -m "D2"; git add FileD3.txt; git commit -m "D3"
+
+pick 2ba1b96 commit F
+pick a5730d8 commit E
+drop 0770d33 commmit G
+pick d780c7f commit H
+pick fe771ee updated year
+pick 64049ed Update README.md
+----
+
+.Resulting Git History
+image::img/step3/rebase_done.png[]
+
+== Step 4
+`git rerere` is a feature in Git that stands for "reuse recorded resolution".
+It is designed to help automate the resolution of conflicts that occur during the merging or rebasing of branches.
+
+Whenever Git encounters a conflict during a merge or rebase operation, it will prompt the user to resolve the conflict.
+Once the user has manually resolved the conflict, `git rerere` can record the resolution and reuse it for future conflicts involving the same set of files and changes.
+This means that if the same conflict arises again in the future, `git rerere` can automatically apply the previously recorded resolution, saving the user time and effort.
+
+It can be used, for example, in a situation when working on a long-lived branch that frequently merges changes from other branches.
+In this scenario, git rerere can help to avoid re-solving the same conflicts each time when changes are merged from other branches into the long-lived branch.
