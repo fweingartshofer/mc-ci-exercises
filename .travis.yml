@@ -1,0 +1,17 @@
+language: go
+
+go:
+  - 1.20.3
+
+before_script:
+  - cd e02
+
+services:
+  - postgresql
+  - docker
+
+script:
+  # Test the code
+  - go test -v ./...
+  # Build the code
+  - CGO_ENABLED=0 GOARCH=amd64 go build
