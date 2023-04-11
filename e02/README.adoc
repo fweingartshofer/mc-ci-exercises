@@ -1,0 +1,62 @@
+= Exercise 02
+:source-highlighter: rouge
+:author: Florian Weingartshofer
+:rouge-style: github
+
+
+https://github.com/fweingartshofer/mc-ci-exercises[Github Repository]
+
+== Step 01
+Follow the tutorial
+
+== Step 02
+Add two endpoints:
+- `/health` which checks the health of the database
+- `/products/search` which searches products by name
+
+.model.go
+[source,go]
+----
+include::./model.go[lines=68..88]
+----
+
+.app.go
+[source,go]
+----
+include::./app.go[lines=156..176]
+----
+
+main_test.go
+[source,go]
+----
+include::./main_test.go[lines=196..213]
+----
+
+.Test Results
+[source]
+----
+GOROOT=/home/florian/sdk/go1.20.3 #gosetup
+GOPATH=/home/florian/go #gosetup
+/home/florian/sdk/go1.20.3/bin/go test -json -v ./...
+{"Time":"2023-04-11T08:31:10.898434892+02:00","Action":"start","Package":"github.com/fweingartshofer/mc-ci-exercises"}
+=== RUN   TestEmptyTable
+--- PASS: TestEmptyTable (0.00s)
+=== RUN   TestGetNonExistentProduct
+--- PASS: TestGetNonExistentProduct (0.00s)
+=== RUN   TestCreateProduct
+--- PASS: TestCreateProduct (0.00s)
+=== RUN   TestGetProduct
+--- PASS: TestGetProduct (0.00s)
+=== RUN   TestUpdateProduct
+--- PASS: TestUpdateProduct (0.00s)
+=== RUN   TestDeleteProduct
+--- PASS: TestDeleteProduct (0.00s)
+=== RUN   TestHealthEndpoint
+--- PASS: TestHealthEndpoint (0.00s)
+=== RUN   TestFindByNameProducts
+--- PASS: TestFindByNameProducts (0.00s)
+PASS
+ok  	github.com/fweingartshofer/mc-ci-exercises	0.025s
+
+Process finished with the exit code 0
+----
