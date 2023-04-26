@@ -60,3 +60,14 @@ ok  	github.com/fweingartshofer/mc-ci-exercises	0.025s
 
 Process finished with the exit code 0
 ----
+
+== Step 03
+Travis is used to build and test the Go Application.
+
+[source,yaml]
+----
+include::../.travis.yml[]
+----
+
+.Travis Run
+image::img/travis.png[]

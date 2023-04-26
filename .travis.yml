@@ -5,6 +5,7 @@ go:
 
 before_script:
   - cd e02
+  - psql -U postgres -f ./schema.sql
 
 services:
   - postgresql
@@ -15,3 +16,12 @@ script:
   - go test -v ./...
   # Build the code
   - CGO_ENABLED=0 GOARCH=amd64 go build
+
+env:
+  global:
+    - APP_DB_USERNAME=postgres
+    - APP_DB_PASSWORD=
+    - APP_DB_NAME=postgres
+    - TEST_DB_USERNAME=postgres
+    - TEST_DB_PASSWORD=
+    - TEST_DB_NAME=postgres
