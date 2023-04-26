@@ -71,3 +71,7 @@ include::../.travis.yml[]
 
 .Travis Run
 image::img/travis.png[]
+
+== Step 04
+.Sonarcloud
+image::img/sonar.png[]
