@@ -1,0 +1,45 @@
+= Exercise 2023-04-11
+:source-highlighter: rouge
+:author: Florian Weingartshofer
+:rouge-style: github
+
+== Research Questions
+1. What approaches and associated tools are available to support and facilitate continuous integration, delivery and deployment?
+2. Which tools have been employed to design and implement deployment pipelines (i.e., modern release pipeline)?
+3. What challenges have been reported for adopting continuous practices?
+4. What practices have been reported to successfully implement continuous practices?
+
+=== RQ3
+Question 3 of the research paper explores the challenges that have been reported for adopting continuous practices.
+The systematic review of literature revealed several challenges faced by organizations when adopting continuous integration, delivery, and deployment practices.
+
+One of the main challenges is the lack of skills and knowledge of practitioners, which makes it difficult for them to effectively utilize the tools and technologies associated with continuous practices.
+This challenge could be addressed through training and education programs for practitioners.
+
+Another challenge reported is the complexity of the deployment pipeline and the need for proper configuration management to ensure the stability of the pipeline.
+This challenge could be mitigated by adopting automated configuration management tools and best practices.
+
+The third challenge is related to the need for a cultural shift within organizations, where teams must collaborate closely and continuously communicate with each other.
+This requires a change in mindset, and the implementation of practices such as DevOps and agile methodologies can help facilitate this cultural shift.
+
+Security is also a significant challenge, as the continuous nature of these practices can potentially introduce security vulnerabilities in the deployment pipeline.
+Therefore, organizations must adopt security best practices and ensure the use of secure coding standards and practices.
+
+Finally, the lack of appropriate tools and infrastructure to support the continuous delivery and deployment pipeline is also a challenge.
+Organizations must carefully evaluate and select tools that align with their requirements and continuously monitor and improve their infrastructure to ensure it can handle the demands of continuous practices.
+
+Overall, the challenges associated with adopting continuous practices require a concerted effort from organizations to overcome.
+By addressing these challenges, organizations can successfully implement continuous integration, delivery, and deployment practices and reap the benefits of faster and more reliable software delivery.
+
+=== RQ4
+Research question 4 aimed to identify the practices that have been reported to successfully implement continuous integration, delivery, and deployment.
+The results of the systematic literature review suggest that several practices are essential for successful implementation of continuous practices.
+
+- Firstly, organizations need to establish a culture of collaboration and communication across all teams and departments involved in software development. This includes the adoption of agile and DevOps methodologies that prioritize continuous feedback, learning, and improvement.
+- Secondly, automation plays a critical role in the implementation of continuous practices. Organizations need to automate as many processes as possible, including testing, build, and deployment processes. This allows teams to reduce manual efforts, errors, and delays, and ultimately accelerate the delivery of software.
+- Thirdly, continuous monitoring and measurement are essential for identifying issues and opportunities for improvement in the delivery pipeline.
+Organizations need to establish metrics and KPIs that track the performance of the pipeline, such as lead time, deployment frequency, and mean time to recover.
+- Fourthly, organizations should leverage containerization and microservices architecture to promote flexibility, scalability, and portability of software systems. This enables teams to deploy smaller and more manageable components of the system more frequently and with less risk.
+- Finally, successful implementation of continuous practices requires the support and commitment of senior management. Leaders need to provide the necessary resources, infrastructure, and training to enable teams to adopt and implement continuous practices effectively.
+
+In conclusion, the implementation of continuous integration, delivery, and deployment practices requires a holistic approach that involves cultural, technological, and managerial practices. Organizations that prioritize collaboration, automation, monitoring, containerization, and leadership are more likely to achieve success in implementing continuous practices.
