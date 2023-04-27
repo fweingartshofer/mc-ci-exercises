@@ -1,0 +1,61 @@
+= Exercise 04
+:source-highlighter: rouge
+:author: Florian Weingartshofer
+:rouge-style: github
+
+https://github.com/fweingartshofer/mc-ci-exercises[Github Repository]
+
+== Step 01
+.Dockerfile
+[source,dockerfile]
+----
+include::./Dockerfile[]
+----
+
+.Build
+image::img/docker-build.png[]
+
+.Login
+image::img/login.png[]
+
+.Push
+image::img/push.png[]
+
+== Step 02
+.Run
+[source,bash]
+docker container run -p 9090:8888 fweingartshofer/my-first-image:0.0.1
+
+.Curl
+image::img/curl.png[]
+
+.PS
+image::img/ps.png[]
+
+.Stop
+image::img/stop.png[]
+
+== Step 03
+
+.GitHub Action
+[source,yaml]
+----
+include::../.github/workflows/build.yaml[]
+----
+
+.Docker Hub Push
+image::img/dockerhub-push.png[]
+
+.Github Action Run
+image::img/github-action-run.png[]
+
+.Run New Image
+image::img/run-new-image.png[]
+
+.Curl new Image
+image::img/new-curl.png[]
+
+== Step 04
+
+.Trivy Scan
+image::img/security-scan.png[]
