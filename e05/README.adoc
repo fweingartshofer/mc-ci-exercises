@@ -1,0 +1,103 @@
+= Exercise 05
+Florian Weingartshofer
+:source-highlighter: rouge
+:author: Florian Weingartshofer
+:rouge-style: github
+
+== MiniKube Setup
+The setup for MiniKube on linux with a rootless docker installation is a bit different to the normal setup.
+
+Add this line to `/etc/default/grub`:
+
+[source,bash]
+GRUB_CMDLINE_LINUX_DEFAULT="intel_iommu=on"
+
+and run the following commands to enable delegations according to https://github.com/kubernetes/minikube/issues/14871[this GitHub Issue]:
+
+[source,bash]
+----
+$ sudo mkdir -p /etc/systemd/system/user@.service.d
+$ cat <<EOF | sudo tee /etc/systemd/system/user@.service.d/delegate.conf
+[Service]
+Delegate=cpu cpuset io memory pids
+EOF
+$ sudo systemctl daemon-reload
+----
+
+Then MiniKube can be started:
+
+image::img/minikube-start.png[]
+
+.Dashboard
+image::img/dashboard.png[]
+
+== Run Container
+Run the container:
+
+[source,bash]
+kubectl run demo --image=fweingartshofer/my-first-image:518fc3bb820f51989e69b6f3cba563257db09145 --port=8888 --labels=app=demo
+
+image::img/run-container-demo.png[]
+
+Check if pod is running and enable forwarding:
+
+image::img/pod-check-and-forwarding.png[]
+
+> Now, access the website http://localhost:8888. What is shown there?
+
+The website that was built https://github.com/fweingartshofer/mc-ci-exercises/blob/main/e04/README.adoc[here].
+
+Now delete the pod:
+
+image::img/demo-delete.png[]
+
+
+== Create deployment
+
+.deployment.yaml
+[source,yaml]
+----
+include::deployment.yaml[]
+----
+
+.Create Deployment
+image::img/create-deployment.png[]
+
+.Port Forwarding
+image::img/port-forward-deployment.png[]
+
+> Now, access the website http://localhost:8888. What is shown there?
+
+The website that was built https://github.com/fweingartshofer/mc-ci-exercises/blob/main/e04/README.adoc[here].
+
+Query pods, there are already three pods, because I configured three replicas in the `deployment.yaml`.
+
+image::img/query-demo-pods.png[]
+
+Delete pods and query them again.
+As we can see the pods were recreated.
+
+image::img/delete-and-query.png[]
+
+
+== Create Service
+
+.`service.yaml`
+[source,yaml]
+----
+include::./service.yaml[]
+----
+
+Tunneling must be enabled.
+
+image::img/service-deployment.png[]
+
+== Create Namespace
+.`namespace.yaml`
+[source,yaml]
+----
+include::./namespace.yaml[]
+----
+
+image::img/namespace.png[]
+

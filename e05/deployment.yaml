@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-first-image-deployment
+  namespace: demo-environment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: my-first-image
+  template:
+    metadata:
+      labels:
+        app: my-first-image
+    spec:
+      containers:
+        - name: my-first-image
+          image: fweingartshofer/my-first-image:518fc3bb820f51989e69b6f3cba563257db09145
+          ports:
+            - containerPort: 8888
